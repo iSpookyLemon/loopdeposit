@@ -72,7 +72,7 @@ export default function Actions({post}) {
 
         <Flex alignItems="center">
             <IconButton 
-                onClick={toggleLike}
+                onClick={user ? toggleLike : null}
                 isLoading={likeLoading || userLoading}
                 size="md" 
                 colorScheme="red" 
@@ -96,7 +96,7 @@ export default function Actions({post}) {
             {comments?.length}
         </Flex>
 
-        {!userLoading && (user.id === uid) && (
+        {!userLoading && (user?.id === uid) && (
             <IconButton
                 ml="auto"
                 onClick={onDeleteOpen}

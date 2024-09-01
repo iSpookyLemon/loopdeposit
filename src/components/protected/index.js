@@ -2,13 +2,9 @@ import { LOGIN } from "lib/routes";
 import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "hooks/auth";
-import Navbar from "components/layout/Navbar";
-import Sidebar from "components/layout/Sidebar";
-import { Box, Flex } from "@chakra-ui/react";
-import ScrollToTop from "utils/ScrollToTop";
 
-export default function Layout() {
-    /*
+export default function Protected() {
+
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const { user, isLoading } = useAuth();
@@ -20,17 +16,10 @@ export default function Layout() {
     }, [pathname, navigate, user, isLoading])
 
     if (isLoading) return "Loading...";
-    */
+
     return (
         <>
-            <ScrollToTop />
-            <Navbar />
-            <Flex pt="16" pb="12" mx="auto" w="full" maxW="1200px">
-                <Box w="900px">
-                    <Outlet />
-                </Box>
-                <Sidebar />
-            </Flex>
+        <Outlet />
         </>
     );
 }

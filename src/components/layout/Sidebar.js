@@ -3,6 +3,7 @@ import { useAuth } from "hooks/auth";
 import { PROTECTED, USERS } from "lib/routes";
 import { Link } from "react-router-dom";
 import Avatar from "components/profile/Avatar";
+import { Avatar as ChakraAvatar } from "@chakra-ui/react";
 
 function ActiveUser() {
     const {user, isLoading } = useAuth();
@@ -11,12 +12,26 @@ function ActiveUser() {
 
     return (
         <Stack align="center" spacing="5" my="8">
-            <Avatar user={user}/>
-            <Code>@{user.username}</Code>
-            <Button colorScheme="teal" w="full" as={Link} to={`${PROTECTED}/profile/${user.id}`}>
-                Edit Profile
-            </Button>
-        </Stack>
+            {user ? (
+                <Avatar user={user}/>
+            ) : (
+                <ChakraAvatar
+                    size="xl"
+                />
+            )}
+            {user ? (
+                <Code>@{user.username}</Code>
+            ) : (
+                <></> 
+            )}
+            {user ? (
+                <Button colorScheme="teal" w="full" as={Link} to={`${PROTECTED}/profile/${user.id}`}>
+                    Edit Profile
+                </Button>
+            ) : (
+                <></> 
+            )}
+        </Stack>   
     );
 }
 

@@ -1,13 +1,10 @@
 import { Button, Flex, Link } from "@chakra-ui/react";
-import { useAuth, useLogout } from "hooks/auth";
-import { DASHBOARD, LOGIN, UPLOAD } from "lib/routes";
+import { useLogout } from "hooks/auth";
+import { DASHBOARD, UPLOAD } from "lib/routes";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Navbar() {
     const {logout, isLoading} = useLogout();
-    const {user, isLoading: authLoading } = useAuth();
-
-    if (authLoading) return "Loading..."
 
     return (
     <Flex
@@ -28,27 +25,15 @@ export default function Navbar() {
             <Link color="teal" as={RouterLink} to={UPLOAD} fontWeight = "bold" px="4">
                 Upload
             </Link>
-            {user ? (
-                <Button
+            <Button
                 ml="auto"
                 colorScheme="teal"
                 size="sm"
                 onClick={logout}
                 isLoading={isLoading}
-                >
-                    Logout
-                </Button>
-            ) : (
-                <Button
-                ml="auto"
-                colorScheme="teal"
-                size="sm"
-                as={RouterLink}
-                to={LOGIN}
-                >
-                    Login
-                </Button>
-            )}
+            >
+                Logout
+            </Button>
         </Flex>
     </Flex>
     );

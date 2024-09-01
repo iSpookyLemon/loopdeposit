@@ -48,7 +48,7 @@ export default function Login() {
                 </form>
                 <Text fontSize="xlg" align="center" mt="6" whiteSpace="pre-line">
                     Don't have an account? {"\n"} Continue as a {" "}
-                    <Link as={RouterLink} to={REGISTER} color="teal.800" fontWeight="medium" textDecor="underline" _hover={{ background: "teal.100" }}>
+                    <Link as={RouterLink} to={DASHBOARD} color="teal.800" fontWeight="medium" textDecor="underline" _hover={{ background: "teal.100" }}>
                         guest
                     </Link> {" "} or {" "}
                     <Link as={RouterLink} to={REGISTER} color="teal.800" fontWeight="medium" textDecor="underline" _hover={{ background: "teal.100" }}>
