@@ -12,4 +12,4 @@ I hadn't touched this project since last summer, so it took me around 3-4 hours 
 
 ### Link
 
-https://loopdeposit.com/
+https://loopdeposit.web.app/
